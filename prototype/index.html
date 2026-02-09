@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Composerp - Composable ERP Platform</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1><i class="fas fa-cube"></i> Composerp</h1>
+                <p class="subtitle">Composable ERP</p>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item active">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="inventory.html" class="nav-item">
+                    <i class="fas fa-boxes"></i>
+                    <span>Inventory</span>
+                </a>
+                <a href="items.html" class="nav-item">
+                    <i class="fas fa-tags"></i>
+                    <span>Items</span>
+                </a>
+                <a href="suppliers.html" class="nav-item">
+                    <i class="fas fa-truck"></i>
+                    <span>Suppliers</span>
+                </a>
+                <a href="locations.html" class="nav-item">
+                    <i class="fas fa-store"></i>
+                    <span>Locations</span>
+                </a>
+                <a href="forecasting.html" class="nav-item">
+                    <i class="fas fa-chart-area"></i>
+                    <span>Forecasting</span>
+                </a>
+                <a href="replenishment.html" class="nav-item">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Replenishment</span>
+                </a>
+                <a href="purchase-orders.html" class="nav-item">
+                    <i class="fas fa-file-invoice"></i>
+                    <span>Purchase Orders</span>
+                </a>
+                <a href="customization.html" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Customization</span>
+                </a>
+                <a href="ai-rag.html" class="nav-item">
+                    <i class="fas fa-robot"></i>
+                    <span>AI & RAG</span>
+                </a>
+                <a href="settings.html" class="nav-item">
+                    <i class="fas fa-sliders-h"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <header class="top-bar">
+                <div class="top-bar-left">
+                    <h2>Dashboard</h2>
+                    <p class="breadcrumb">Home / Dashboard</p>
+                </div>
+                <div class="top-bar-right">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search...">
+                    </div>
+                    <div class="user-menu">
+                        <img src="https://ui-avatars.com/api/?name=Admin+User&background=6366f1&color=fff" alt="User" class="user-avatar">
+                        <span>Admin User</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="content-area">
+                <!-- Stats Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon blue">
+                            <i class="fas fa-boxes"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>2,450</h3>
+                            <p>Total Items</p>
+                            <span class="stat-change positive"><i class="fas fa-arrow-up"></i> 12%</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon green">
+                            <i class="fas fa-store"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>2,000</h3>
+                            <p>Stores</p>
+                            <span class="stat-change positive"><i class="fas fa-arrow-up"></i> 5%</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon orange">
+                            <i class="fas fa-warehouse"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>20</h3>
+                            <p>Warehouses</p>
+                            <span class="stat-change">No change</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon purple">
+                            <i class="fas fa-file-invoice-dollar"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>156</h3>
+                            <p>Pending POs</p>
+                            <span class="stat-change negative"><i class="fas fa-arrow-down"></i> 8%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts and Tables -->
+                <div class="dashboard-grid">
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3>Inventory Overview</h3>
+                            <select class="filter-select">
+                                <option>Last 7 days</option>
+                            </select>
+                        </div>
+                        <div class="chart-placeholder">
+                            <canvas id="inventoryChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3>Low Stock Alerts</h3>
+                            <a href="inventory.html" class="view-all">View All</a>
+                        </div>
+                        <div class="alert-list">
+                            <div class="alert-item">
+                                <div class="alert-icon red">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                </div>
+                                <div class="alert-content">
+                                    <h4>Organic Whole Milk</h4>
+                                    <p>Store 001 - 5 units available</p>
+                                </div>
+                                <a href="replenishment.html" class="alert-action">Reorder</a>
+                            </div>
+                            <div class="alert-item">
+                                <div class="alert-icon orange">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                </div>
+                                <div class="alert-content">
+                                    <h4>Organic Yogurt</h4>
+                                    <p>Store 002 - 8 units available</p>
+                                </div>
+                                <a href="replenishment.html" class="alert-action">Reorder</a>
+                            </div>
+                            <div class="alert-item">
+                                <div class="alert-icon orange">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                </div>
+                                <div class="alert-content">
+                                    <h4>Organic Cheese</h4>
+                                    <p>Store 003 - 3 units available</p>
+                                </div>
+                                <a href="replenishment.html" class="alert-action">Reorder</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3>Recent Transactions</h3>
+                            <a href="inventory.html" class="view-all">View All</a>
+                        </div>
+                        <div class="table-container">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Item</th>
+                                        <th>Location</th>
+                                        <th>Type</th>
+                                        <th>Quantity</th>
+                                        <th>Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Organic Whole Milk</td>
+                                        <td>Store 001</td>
+                                        <td><span class="badge badge-sale">Sale</span></td>
+                                        <td>-5</td>
+                                        <td>2 hours ago</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Organic Yogurt</td>
+                                        <td>Store 002</td>
+                                        <td><span class="badge badge-receipt">Receipt</span></td>
+                                        <td>+50</td>
+                                        <td>5 hours ago</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Organic Cheese</td>
+                                        <td>Warehouse A</td>
+                                        <td><span class="badge badge-transfer">Transfer</span></td>
+                                        <td>-100</td>
+                                        <td>1 day ago</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3>Forecast Accuracy</h3>
+                            <select class="filter-select">
+                                <option>Last 30 days</option>
+                            </select>
+                        </div>
+                        <div class="accuracy-stats">
+                            <div class="accuracy-item">
+                                <div class="accuracy-label">MAPE</div>
+                                <div class="accuracy-value good">15.5%</div>
+                            </div>
+                            <div class="accuracy-item">
+                                <div class="accuracy-label">MAE</div>
+                                <div class="accuracy-value good">5.2</div>
+                            </div>
+                            <div class="accuracy-item">
+                                <div class="accuracy-label">RMSE</div>
+                                <div class="accuracy-value moderate">7.8</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

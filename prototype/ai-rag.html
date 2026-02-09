@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI & RAG - Composerp</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1><i class="fas fa-cube"></i> Composerp</h1>
+                <p class="subtitle">Composable ERP</p>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item"><i class="fas fa-chart-line"></i><span>Dashboard</span></a>
+                <a href="inventory.html" class="nav-item"><i class="fas fa-boxes"></i><span>Inventory</span></a>
+                <a href="items.html" class="nav-item"><i class="fas fa-tags"></i><span>Items</span></a>
+                <a href="suppliers.html" class="nav-item"><i class="fas fa-truck"></i><span>Suppliers</span></a>
+                <a href="locations.html" class="nav-item"><i class="fas fa-store"></i><span>Locations</span></a>
+                <a href="forecasting.html" class="nav-item"><i class="fas fa-chart-area"></i><span>Forecasting</span></a>
+                <a href="replenishment.html" class="nav-item"><i class="fas fa-shopping-cart"></i><span>Replenishment</span></a>
+                <a href="purchase-orders.html" class="nav-item"><i class="fas fa-file-invoice"></i><span>Purchase Orders</span></a>
+                <a href="customization.html" class="nav-item"><i class="fas fa-cog"></i><span>Customization</span></a>
+                <a href="ai-rag.html" class="nav-item active"><i class="fas fa-robot"></i><span>AI & RAG</span></a>
+                <a href="settings.html" class="nav-item"><i class="fas fa-sliders-h"></i><span>Settings</span></a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="top-bar-left">
+                    <h2>AI & RAG</h2>
+                    <p class="breadcrumb">AI / RAG / Agents</p>
+                </div>
+                <div class="top-bar-right">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search...">
+                    </div>
+                    <div class="user-menu">
+                        <img src="https://ui-avatars.com/api/?name=Admin+User&background=6366f1&color=fff" alt="User" class="user-avatar">
+                        <span>Admin User</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-area">
+                <div class="page-header">
+                    <h2>AI & RAG Features</h2>
+                </div>
+
+                <!-- AI Query Interface -->
+                <div class="dashboard-card" style="margin-bottom: 2rem;">
+                    <div class="card-header">
+                        <h3><i class="fas fa-robot"></i> Natural Language Query</h3>
+                        <p style="color: var(--gray); font-size: 0.875rem;">Ask questions in plain English</p>
+                    </div>
+                    <div style="padding: 1rem;">
+                        <div class="form-group">
+                            <textarea class="form-textarea" placeholder="Ask a question... (e.g., 'What items are low in stock at Store 001?')" style="min-height: 100px;"></textarea>
+                        </div>
+                        <button class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> Query
+                        </button>
+                    </div>
+                    <div style="margin-top: 1.5rem; padding: 1rem; background: var(--light); border-radius: 0.5rem;">
+                        <h4 style="margin-bottom: 0.5rem;">Example Queries:</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding: 0.5rem 0;"><i class="fas fa-chevron-right" style="color: var(--primary); margin-right: 0.5rem;"></i> "What items are low in stock at Store 001?"</li>
+                            <li style="padding: 0.5rem 0;"><i class="fas fa-chevron-right" style="color: var(--primary); margin-right: 0.5rem;"></i> "Show me all dairy products from FarmFresh Dairy"</li>
+                            <li style="padding: 0.5rem 0;"><i class="fas fa-chevron-right" style="color: var(--primary); margin-right: 0.5rem;"></i> "Which stores have inventory for Organic Whole Milk?"</li>
+                            <li style="padding: 0.5rem 0;"><i class="fas fa-chevron-right" style="color: var(--primary); margin-right: 0.5rem;"></i> "Generate forecast for Organic Yogurt at Store 002"</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Semantic Search -->
+                <div class="dashboard-card" style="margin-bottom: 2rem;">
+                    <div class="card-header">
+                        <h3><i class="fas fa-search"></i> Semantic Search</h3>
+                        <p style="color: var(--gray); font-size: 0.875rem;">Search using natural language with AI understanding</p>
+                    </div>
+                    <div style="padding: 1rem;">
+                        <div class="form-group">
+                            <input type="text" class="form-input" placeholder="Search semantically... (e.g., 'dairy products with low stock')">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Entity Types</label>
+                            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                                <label><input type="checkbox" checked> Items</label>
+                                <label><input type="checkbox"> Suppliers</label>
+                                <label><input type="checkbox"> Locations</label>
+                                <label><input type="checkbox"> Purchase Orders</label>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary">
+                            <i class="fas fa-search"></i> Search
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Relationship Graph -->
+                <div class="dashboard-card" style="margin-bottom: 2rem;">
+                    <div class="card-header">
+                        <h3><i class="fas fa-project-diagram"></i> Relationship Graph</h3>
+                        <p style="color: var(--gray); font-size: 0.875rem;">Visualize entity relationships</p>
+                    </div>
+                    <div style="padding: 1rem;">
+                        <div class="form-group">
+                            <label class="form-label">Entity Type</label>
+                            <select class="form-select">
+                                <option>Item</option>
+                                <option>Supplier</option>
+                                <option>Location</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Entity ID</label>
+                            <input type="text" class="form-input" placeholder="Enter entity ID">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Traversal Depth</label>
+                            <input type="number" class="form-input" value="2" min="1" max="5">
+                        </div>
+                        <button class="btn btn-primary">
+                            <i class="fas fa-project-diagram"></i> Visualize Graph
+                        </button>
+                    </div>
+                    <div style="margin-top: 1.5rem; padding: 2rem; background: var(--light); border-radius: 0.5rem; text-align: center;">
+                        <i class="fas fa-project-diagram" style="font-size: 3rem; color: var(--gray); opacity: 0.5;"></i>
+                        <p style="margin-top: 1rem; color: var(--gray);">Relationship graph visualization will appear here</p>
+                    </div>
+                </div>
+
+                <!-- RAG Documents -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-file-alt"></i> RAG Documents</h3>
+                        <p style="color: var(--gray); font-size: 0.875rem;">Natural language representations of entities</p>
+                    </div>
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Entity Type</th>
+                                    <th>Entity ID</th>
+                                    <th>Content Preview</th>
+                                    <th>Embeddings</th>
+                                    <th>Last Updated</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Item</strong></td>
+                                    <td>item-123</td>
+                                    <td style="max-width: 300px;">Product: Organic Whole Milk (SKU: MILK-ORG-001). Category: Dairy...</td>
+                                    <td><span class="badge badge-success">Generated</span></td>
+                                    <td>2 hours ago</td>
+                                    <td>
+                                        <a href="#" class="btn btn-secondary" style="padding: 0.25rem 0.5rem; font-size: 0.75rem;">View</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Supplier</strong></td>
+                                    <td>supplier-456</td>
+                                    <td style="max-width: 300px;">Supplier: FarmFresh Dairy (Code: FF-DAIRY-001). Contact...</td>
+                                    <td><span class="badge badge-success">Generated</span></td>
+                                    <td>5 hours ago</td>
+                                    <td>
+                                        <a href="#" class="btn btn-secondary" style="padding: 0.25rem 0.5rem; font-size: 0.75rem;">View</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Location</strong></td>
+                                    <td>location-789</td>
+                                    <td style="max-width: 300px;">Location: Store 001. Type: Store. Address: 123 Main St...</td>
+                                    <td><span class="badge badge-success">Generated</span></td>
+                                    <td>1 day ago</td>
+                                    <td>
+                                        <a href="#" class="btn btn-secondary" style="padding: 0.25rem 0.5rem; font-size: 0.75rem;">View</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- MCP Server Info -->
+                <div class="dashboard-card" style="margin-top: 2rem;">
+                    <div class="card-header">
+                        <h3><i class="fas fa-server"></i> MCP Server</h3>
+                        <p style="color: var(--gray); font-size: 0.875rem;">Model Context Protocol server for AI integration</p>
+                    </div>
+                    <div style="padding: 1rem;">
+                        <p><strong>Server Name:</strong> composerp</p>
+                        <p><strong>Version:</strong> 1.0.0</p>
+                        <p><strong>Status:</strong> <span class="badge badge-success">Active</span></p>
+                        <p><strong>Available Tools:</strong> 12</p>
+                        <p><strong>Available Resources:</strong> 5</p>
+                        <div style="margin-top: 1rem;">
+                            <h4 style="margin-bottom: 0.5rem;">Available Tools:</h4>
+                            <ul style="list-style: none; padding: 0;">
+                                <li style="padding: 0.25rem 0;"><code>get_inventory_position</code></li>
+                                <li style="padding: 0.25rem 0;"><code>create_transaction</code></li>
+                                <li style="padding: 0.25rem 0;"><code>semantic_search</code></li>
+                                <li style="padding: 0.25rem 0;"><code>get_relationships</code></li>
+                                <li style="padding: 0.25rem 0;"><code>generate_forecast</code></li>
+                                <li style="padding: 0.25rem 0;"><code>evaluate_replenishment</code></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

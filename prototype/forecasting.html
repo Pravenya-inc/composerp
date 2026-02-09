@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forecasting - Composerp</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header"><h1><i class="fas fa-cube"></i> Composerp</h1><p class="subtitle">Composable ERP</p></div>
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item"><i class="fas fa-chart-line"></i><span>Dashboard</span></a>
+                <a href="inventory.html" class="nav-item"><i class="fas fa-boxes"></i><span>Inventory</span></a>
+                <a href="items.html" class="nav-item"><i class="fas fa-tags"></i><span>Items</span></a>
+                <a href="suppliers.html" class="nav-item"><i class="fas fa-truck"></i><span>Suppliers</span></a>
+                <a href="locations.html" class="nav-item"><i class="fas fa-store"></i><span>Locations</span></a>
+                <a href="forecasting.html" class="nav-item active"><i class="fas fa-chart-area"></i><span>Forecasting</span></a>
+                <a href="replenishment.html" class="nav-item"><i class="fas fa-shopping-cart"></i><span>Replenishment</span></a>
+                <a href="purchase-orders.html" class="nav-item"><i class="fas fa-file-invoice"></i><span>Purchase Orders</span></a>
+                <a href="customization.html" class="nav-item"><i class="fas fa-cog"></i><span>Customization</span></a>
+                <a href="ai-rag.html" class="nav-item"><i class="fas fa-robot"></i><span>AI & RAG</span></a>
+                <a href="settings.html" class="nav-item"><i class="fas fa-sliders-h"></i><span>Settings</span></a>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="top-bar-left"><h2>Forecasting</h2><p class="breadcrumb">Forecasting / Demand Forecast</p></div>
+                <div class="top-bar-right">
+                    <div class="search-box"><i class="fas fa-search"></i><input type="text" placeholder="Search..."></div>
+                    <div class="user-menu"><img src="https://ui-avatars.com/api/?name=Admin+User&background=6366f1&color=fff" alt="User" class="user-avatar"><span>Admin User</span><i class="fas fa-chevron-down"></i></div>
+                </div>
+            </header>
+            <div class="content-area">
+                <div class="page-header">
+                    <h2>Demand Forecasting</h2>
+                    <button class="btn btn-primary" onclick="openModal('generateForecastModal')"><i class="fas fa-chart-line"></i> Generate Forecast</button>
+                </div>
+                <div class="action-bar">
+                    <div class="action-bar-left">
+                        <select class="filter-select"><option>All Items</option><option>Organic Whole Milk</option></select>
+                        <select class="filter-select"><option>All Locations</option><option>Store 001</option></select>
+                        <select class="filter-select"><option>BASELINE</option><option>ML_MODEL_1</option></select>
+                    </div>
+                </div>
+                <div class="dashboard-card">
+                    <div class="card-header"><h3>Forecast Chart</h3><select class="filter-select"><option>Next 30 days</option></select></div>
+                    <div class="chart-placeholder" style="height: 400px;">
+                        <canvas id="forecastChart"></canvas>
+                    </div>
+                </div>
+                <div class="dashboard-card">
+                    <div class="card-header"><h3>Forecast Data</h3></div>
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Item</th>
+                                    <th>Location</th>
+                                    <th>Date</th>
+                                    <th>Forecasted Qty</th>
+                                    <th>Confidence</th>
+                                    <th>Model</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Organic Whole Milk</td>
+                                    <td>Store 001</td>
+                                    <td>2026-02-10</td>
+                                    <td>30</td>
+                                    <td>70%</td>
+                                    <td>BASELINE</td>
+                                </tr>
+                                <tr>
+                                    <td>Organic Whole Milk</td>
+                                    <td>Store 001</td>
+                                    <td>2026-02-11</td>
+                                    <td>28</td>
+                                    <td>70%</td>
+                                    <td>BASELINE</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <div class="modal-overlay" id="generateForecastModal">
+        <div class="modal">
+            <div class="modal-header"><h3>Generate Forecast</h3><button class="modal-close" onclick="closeModal('generateForecastModal')">&times;</button></div>
+            <form>
+                <div class="form-group"><label class="form-label">Item *</label><select class="form-select" required><option>Select item...</option></select></div>
+                <div class="form-group"><label class="form-label">Location *</label><select class="form-select" required><option>Select location...</option></select></div>
+                <div class="form-group"><label class="form-label">Model Type</label><select class="form-select"><option>BASELINE</option><option>ML_MODEL_1</option></select></div>
+                <div class="form-group"><label class="form-label">Periods (weeks)</label><input type="number" class="form-input" value="4"></div>
+                <div class="form-group"><label class="form-label">Forecast Days</label><input type="number" class="form-input" value="30"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('generateForecastModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Generate</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="js/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>
