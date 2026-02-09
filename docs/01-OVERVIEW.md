@@ -45,6 +45,19 @@ Composerp is a **composable, API-first ERP platform** designed to replace monoli
 - Enterprises own their data and configurations
 - API-first approach enables integration with existing systems
 
+### 6. Salesforce-Like Flexibility
+- **Custom fields** - Add custom fields to any entity with types, validation, display names
+- **Custom objects** - Create entirely new entities/tables dynamically
+- **User-friendly names** - Display names independent of technical field names
+- **No code changes** - Customize without developers
+
+### 7. AI-First Design
+- **Cross-references by default** - All relationships automatically tracked
+- **RAG-ready** - Structured for Retrieval Augmented Generation
+- **AI agents** - Built-in support for AI agents with natural language queries
+- **MCP servers** - Model Context Protocol server support
+- **Semantic search** - Vector embeddings for all entities
+
 ## Design Goals
 
 ### Cloud Native

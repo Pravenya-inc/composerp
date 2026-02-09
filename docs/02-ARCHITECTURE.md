@@ -177,10 +177,14 @@ PurchaseOrder
 
 ### Extensibility
 
-- **Custom attributes** as JSON columns
+- **Custom attributes** as JSON columns with metadata layer
+- **Custom fields** - Salesforce-like custom field definitions with types, validation, display names
+- **Custom objects** - Create entirely new entities/tables dynamically
+- **User-friendly names** - Display names independent of technical field names
 - **JSON Schema validation** for custom attributes
 - **Versioned schemas** for API evolution
 - **Plugin architecture** for forecasting models
+- **AI metadata** - Semantic metadata for all custom fields and objects
 
 ## Communication Patterns
 
@@ -268,6 +272,33 @@ PurchaseOrder
 - **Event bus replication** (Kafka replication)
 - **Health checks** and auto-recovery
 - **Circuit breakers** for service resilience
+
+## AI & RAG Architecture
+
+### Relationship Tracking
+- **Automatic relationship detection** - All entity relationships tracked automatically
+- **Relationship graph** - Complete knowledge graph of all relationships
+- **Cross-references by default** - Every relationship stored for AI/RAG purposes
+
+### RAG Support
+- **RAG documents** - Natural language representations of all entities
+- **Vector embeddings** - All text fields embedded for semantic search
+- **Vector store** - Pinecone/Weaviate/Qdrant for semantic search
+- **Semantic search API** - Natural language queries with relationship context
+
+### AI Agent Support
+- **Natural language queries** - Query system in plain English
+- **Agent tools** - Built-in tools for common operations
+- **Reasoning support** - Step-by-step reasoning for complex queries
+- **Context awareness** - Full entity and relationship context
+
+### MCP Server
+- **Model Context Protocol** - Standard protocol for AI model integration
+- **Tool registration** - Automatic tool discovery and registration
+- **Resource access** - Direct data access for AI models
+- **Prompt templates** - Pre-defined prompts for common tasks
+
+See [AI & RAG Architecture](./14-AI-RAG.md) for detailed documentation.
 
 ## Security Architecture
 

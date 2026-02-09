@@ -18,6 +18,8 @@
 - **[Event-Driven Architecture](./07-EVENT-DRIVEN.md)** - Event bus patterns and implementation
 - **[Workflow & Configuration](./08-WORKFLOWS.md)** - Configurable business logic
 - **[Multi-Tenancy](./09-MULTI-TENANCY.md)** - Tenant isolation and data architecture
+- **[Customization & Extensibility](./13-CUSTOMIZATION.md)** - Salesforce-like custom fields, custom objects, user-friendly names
+- **[AI & RAG Architecture](./14-AI-RAG.md)** - RAG support, AI agents, MCP servers, relationship graph
 
 ### Operations
 - **[Deployment](./10-DEPLOYMENT.md)** - Cloud-native deployment strategies
@@ -37,6 +39,8 @@
 3. **Event-Driven** - Every business action emits events
 4. **Configurable Workflows** - Rules instead of hardcoded logic
 5. **Enterprise Ownership** - Full customization control, no forced upgrades
+6. **Salesforce-Like Flexibility** - Custom fields, custom objects, user-friendly names
+7. **AI-First Design** - Cross-references by default, RAG-ready, agent support, MCP servers
 
 ## 🏗️ Current Focus: Retail Merchandising (openMerch)
 
