@@ -4,7 +4,11 @@ This is a clickable prototype for Composerp - a modern, composable, API-first ER
 
 ## Features Demonstrated
 
-- ✅ Dashboard with stats and charts
+- ✅ **Role-Based Access Control** - Administrator, Buyer, and Merchandiser roles
+- ✅ **Role-Specific Dashboards** - Customized dashboards for each persona
+- ✅ **Buyer Dashboard** - Product groups, purchase orders, supplier management
+- ✅ **Merchandiser Dashboard** - Inventory analysis, assortment performance, forecasting
+- ✅ **Administrator Dashboard** - Full system overview
 - ✅ Inventory Management (SSLE/WSLE)
 - ✅ Items/Products Management
 - ✅ Suppliers Management
@@ -17,16 +21,25 @@ This is a clickable prototype for Composerp - a modern, composable, API-first ER
 
 ## How to Use
 
-1. Open `index.html` in a web browser
-2. Navigate through the application using the sidebar menu
-3. Click on buttons and links to see modals and interactions
-4. All pages are interconnected and clickable
+1. **Start with Login**: Open `login.html` in a web browser (or it will redirect automatically)
+2. **Select Your Role**: Choose from Administrator, Buyer, or Merchandiser
+3. **Role-Specific Dashboards**: Each role has a customized dashboard:
+   - **Administrator**: Full system access
+   - **Buyer**: Focus on purchase orders and product groups
+   - **Merchandiser**: Focus on inventory and assortment planning
+4. Navigate through the application using the sidebar menu
+5. Click on buttons and links to see modals and interactions
+6. All pages are interconnected and clickable
+7. **Logout**: Click on your name in the top-right to logout
 
 ## File Structure
 
 ```
 prototype/
-├── index.html              # Dashboard
+├── login.html              # Role selection/login page
+├── index.html              # Admin Dashboard (redirects based on role)
+├── dashboard-buyer.html    # Buyer-specific dashboard
+├── dashboard-merchandiser.html # Merchandiser-specific dashboard
 ├── inventory.html          # Inventory management
 ├── items.html              # Items/products
 ├── suppliers.html          # Suppliers
@@ -40,7 +53,7 @@ prototype/
 ├── css/
 │   └── style.css          # Main stylesheet
 ├── js/
-│   ├── app.js             # App-wide JavaScript
+│   ├── app.js             # App-wide JavaScript (role management)
 │   └── dashboard.js       # Dashboard-specific JS
 └── README.md              # This file
 ```

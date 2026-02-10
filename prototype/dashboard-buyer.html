@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buyer Dashboard - Composerp</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1><i class="fas fa-cube"></i> Composerp</h1>
+                <p class="subtitle">Composable ERP</p>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard-buyer.html" class="nav-item active">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="items.html" class="nav-item">
+                    <i class="fas fa-tags"></i>
+                    <span>My Product Groups</span>
+                </a>
+                <a href="suppliers.html" class="nav-item">
+                    <i class="fas fa-truck"></i>
+                    <span>Suppliers</span>
+                </a>
+                <a href="purchase-orders.html" class="nav-item">
+                    <i class="fas fa-file-invoice"></i>
+                    <span>Purchase Orders</span>
+                </a>
+                <a href="forecasting.html" class="nav-item">
+                    <i class="fas fa-chart-area"></i>
+                    <span>Forecasting</span>
+                </a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="top-bar-left">
+                    <h2>Buyer Dashboard</h2>
+                    <p class="breadcrumb">Home / Buyer Dashboard</p>
+                </div>
+                <div class="top-bar-right">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search...">
+                    </div>
+                    <div class="user-menu" onclick="logout()" style="cursor: pointer;">
+                        <img src="https://ui-avatars.com/api/?name=Buyer+User&background=10b981&color=fff" alt="User" class="user-avatar">
+                        <span>Buyer User</span>
+                        <i class="fas fa-sign-out-alt"></i>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-area">
+                <!-- Buyer Stats -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon blue">
+                            <i class="fas fa-file-invoice-dollar"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>24</h3>
+                            <p>Pending POs</p>
+                            <span class="stat-change positive"><i class="fas fa-arrow-up"></i> 3 new</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon green">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>156</h3>
+                            <p>Approved This Month</p>
+                            <span class="stat-change positive"><i class="fas fa-arrow-up"></i> 12%</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon orange">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>$245K</h3>
+                            <p>Total PO Value</p>
+                            <span class="stat-change positive"><i class="fas fa-arrow-up"></i> 8%</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon purple">
+                            <i class="fas fa-layer-group"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>5</h3>
+                            <p>Product Groups</p>
+                            <span class="stat-change">Assigned</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Groups -->
+                <div class="dashboard-card" style="margin-bottom: 2rem;">
+                    <div class="card-header">
+                        <h3><i class="fas fa-layer-group"></i> My Product Groups</h3>
+                        <a href="items.html" class="view-all">View All</a>
+                    </div>
+                    <div class="cards-grid">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title">Dairy Products</div>
+                                <div class="card-subtitle">45 Items</div>
+                            </div>
+                            <div class="card-body">
+                                <p><strong>Suppliers:</strong> 3</p>
+                                <p><strong>Pending POs:</strong> 8</p>
+                                <p><strong>Total Value:</strong> $85,000</p>
+                                <p><strong>Low Stock Items:</strong> <span style="color: var(--danger); font-weight: 600;">12</span></p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="items.html?group=dairy" class="btn btn-primary">Manage</a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title">Frozen Foods</div>
+                                <div class="card-subtitle">32 Items</div>
+                            </div>
+                            <div class="card-body">
+                                <p><strong>Suppliers:</strong> 2</p>
+                                <p><strong>Pending POs:</strong> 5</p>
+                                <p><strong>Total Value:</strong> $62,000</p>
+                                <p><strong>Low Stock Items:</strong> <span style="color: var(--warning); font-weight: 600;">7</span></p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="items.html?group=frozen" class="btn btn-primary">Manage</a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title">Produce</div>
+                                <div class="card-subtitle">28 Items</div>
+                            </div>
+                            <div class="card-body">
+                                <p><strong>Suppliers:</strong> 4</p>
+                                <p><strong>Pending POs:</strong> 6</p>
+                                <p><strong>Total Value:</strong> $48,000</p>
+                                <p><strong>Low Stock Items:</strong> <span style="color: var(--danger); font-weight: 600;">9</span></p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="items.html?group=produce" class="btn btn-primary">Manage</a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title">Beverages</div>
+                                <div class="card-subtitle">38 Items</div>
+                            </div>
+                            <div class="card-body">
+                                <p><strong>Suppliers:</strong> 3</p>
+                                <p><strong>Pending POs:</strong> 4</p>
+                                <p><strong>Total Value:</strong> $35,000</p>
+                                <p><strong>Low Stock Items:</strong> <span style="color: var(--success); font-weight: 600;">2</span></p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="items.html?group=beverages" class="btn btn-primary">Manage</a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title">Snacks</div>
+                                <div class="card-subtitle">22 Items</div>
+                            </div>
+                            <div class="card-body">
+                                <p><strong>Suppliers:</strong> 2</p>
+                                <p><strong>Pending POs:</strong> 1</p>
+                                <p><strong>Total Value:</strong> $15,000</p>
+                                <p><strong>Low Stock Items:</strong> <span style="color: var(--success); font-weight: 600;">1</span></p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="items.html?group=snacks" class="btn btn-primary">Manage</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pending Purchase Orders -->
+                <div class="dashboard-card" style="margin-bottom: 2rem;">
+                    <div class="card-header">
+                        <h3><i class="fas fa-file-invoice"></i> Pending Purchase Orders</h3>
+                        <a href="purchase-orders.html" class="view-all">View All</a>
+                    </div>
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>PO Number</th>
+                                    <th>Product Group</th>
+                                    <th>Supplier</th>
+                                    <th>Total Amount</th>
+                                    <th>Items</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>PO-2026-001</strong></td>
+                                    <td><span class="badge badge-receipt">Dairy</span></td>
+                                    <td>FarmFresh Dairy</td>
+                                    <td>$5,000.00</td>
+                                    <td>12</td>
+                                    <td><span class="badge badge-warning">PENDING</span></td>
+                                    <td>
+                                        <a href="purchase-orders.html" class="btn btn-success" style="padding: 0.25rem 0.5rem; font-size: 0.75rem;">Review</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>PO-2026-002</strong></td>
+                                    <td><span class="badge badge-transfer">Frozen</span></td>
+                                    <td>FrozenFoods Inc</td>
+                                    <td>$3,500.00</td>
+                                    <td>8</td>
+                                    <td><span class="badge badge-warning">PENDING</span></td>
+                                    <td>
+                                        <a href="purchase-orders.html" class="btn btn-success" style="padding: 0.25rem 0.5rem; font-size: 0.75rem;">Review</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>PO-2026-003</strong></td>
+                                    <td><span class="badge badge-success">Produce</span></td>
+                                    <td>Fresh Farms Co</td>
+                                    <td>$2,800.00</td>
+                                    <td>15</td>
+                                    <td><span class="badge badge-warning">PENDING</span></td>
+                                    <td>
+                                        <a href="purchase-orders.html" class="btn btn-success" style="padding: 0.25rem 0.5rem; font-size: 0.75rem;">Review</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Low Stock Alerts by Product Group -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-exclamation-triangle"></i> Low Stock Alerts - My Product Groups</h3>
+                    </div>
+                    <div class="alert-list">
+                        <div class="alert-item">
+                            <div class="alert-icon red">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="alert-content">
+                                <h4>Dairy Products - 12 items low</h4>
+                                <p>Organic Whole Milk, Organic Yogurt, Organic Cheese need reordering</p>
+                            </div>
+                            <a href="purchase-orders.html" class="alert-action">Create PO</a>
+                        </div>
+                        <div class="alert-item">
+                            <div class="alert-icon orange">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="alert-content">
+                                <h4>Produce - 9 items low</h4>
+                                <p>Fresh vegetables and fruits need replenishment</p>
+                            </div>
+                            <a href="purchase-orders.html" class="alert-action">Create PO</a>
+                        </div>
+                        <div class="alert-item">
+                            <div class="alert-icon orange">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="alert-content">
+                                <h4>Frozen Foods - 7 items low</h4>
+                                <p>Frozen vegetables and meals need restocking</p>
+                            </div>
+                            <a href="purchase-orders.html" class="alert-action">Create PO</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
