@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physical Inventory - Composerp</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header"><h1><i class="fas fa-cube"></i> Composerp</h1><p class="subtitle">Composable ERP</p></div>
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item"><i class="fas fa-chart-line"></i><span>Dashboard</span></a>
+                <a href="inventory-counts.html" class="nav-item"><i class="fas fa-clipboard-check"></i><span>Cycle Counts</span></a>
+                <a href="physical-inventory.html" class="nav-item active"><i class="fas fa-clipboard-list"></i><span>Physical Inventory</span></a>
+                <a href="inventory.html" class="nav-item"><i class="fas fa-boxes"></i><span>Inventory</span></a>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="top-bar-left"><h2>Physical Inventory</h2><p class="breadcrumb">Inventory / Physical Inventory</p></div>
+                <div class="top-bar-right">
+                    <div class="search-box"><i class="fas fa-search"></i><input type="text" placeholder="Search..."></div>
+                    <div class="user-menu"><img src="https://ui-avatars.com/api/?name=Admin+User&background=6366f1&color=fff" alt="User" class="user-avatar"><span>Admin User</span><i class="fas fa-chevron-down"></i></div>
+                </div>
+            </header>
+            <div class="content-area">
+                <div class="page-header">
+                    <h2>Physical Inventory</h2>
+                    <button class="btn btn-primary" onclick="openModal('createPhysicalInventoryModal')"><i class="fas fa-plus"></i> Schedule Physical Inventory</button>
+                </div>
+                <div class="action-bar">
+                    <div class="action-bar-left">
+                        <select class="filter-select"><option>All Status</option><option>SCHEDULED</option><option>IN_PROGRESS</option><option>COMPLETED</option><option>ADJUSTED</option></select>
+                        <select class="filter-select"><option>All Locations</option></select>
+                    </div>
+                </div>
+                <div class="dashboard-card">
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Physical Inv #</th>
+                                    <th>Location</th>
+                                    <th>Items</th>
+                                    <th>Status</th>
+                                    <th>Scheduled Date</th>
+                                    <th>Completed Date</th>
+                                    <th>Variance Count</th>
+                                    <th>Variance Value</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>PHY-2026-001</strong></td>
+                                    <td>Store 001</td>
+                                    <td>1,250</td>
+                                    <td><span class="badge badge-warning">IN_PROGRESS</span></td>
+                                    <td>2026-02-10</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>
+                                        <a href="#" class="btn btn-primary" style="padding: 0.25rem 0.5rem; font-size: 0.75rem;">Count</a>
+                                        <a href="#" class="btn btn-secondary" style="padding: 0.25rem 0.5rem; font-size: 0.75rem;">View</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>PHY-2026-002</strong></td>
+                                    <td>Warehouse A</td>
+                                    <td>5,000</td>
+                                    <td><span class="badge badge-success">COMPLETED</span></td>
+                                    <td>2026-01-31</td>
+                                    <td>2026-02-01</td>
+                                    <td><span style="color: var(--success);">15 items</span></td>
+                                    <td>$250.00</td>
+                                    <td>
+                                        <a href="#" class="btn btn-success" style="padding: 0.25rem 0.5rem; font-size: 0.75rem;">Adjust</a>
+                                        <a href="#" class="btn btn-secondary" style="padding: 0.25rem 0.5rem; font-size: 0.75rem;">View</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <div class="modal-overlay" id="createPhysicalInventoryModal">
+        <div class="modal">
+            <div class="modal-header"><h3>Schedule Physical Inventory</h3><button class="modal-close" onclick="closeModal('createPhysicalInventoryModal')">&times;</button></div>
+            <form>
+                <div class="form-group"><label class="form-label">Location *</label><select class="form-select" required><option>Select location...</option></select></div>
+                <div class="form-group"><label class="form-label">Scheduled Date *</label><input type="date" class="form-input" required></div>
+                <div class="form-group"><label class="form-label">Count Type</label><select class="form-select"><option>Full Count</option><option>Category Based</option><option>ABC Based</option></select></div>
+                <div class="form-group"><label class="form-label">Notes</label><textarea class="form-textarea"></textarea></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('createPhysicalInventoryModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Schedule</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="js/app.js"></script>
+</body>
+</html>

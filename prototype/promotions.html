@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promotions - Composerp</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header"><h1><i class="fas fa-cube"></i> Composerp</h1><p class="subtitle">Composable ERP</p></div>
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item"><i class="fas fa-chart-line"></i><span>Dashboard</span></a>
+                <a href="pricing.html" class="nav-item"><i class="fas fa-dollar-sign"></i><span>Pricing</span></a>
+                <a href="promotions.html" class="nav-item active"><i class="fas fa-tag"></i><span>Promotions</span></a>
+                <a href="markdowns.html" class="nav-item"><i class="fas fa-arrow-down"></i><span>Markdowns</span></a>
+                <a href="price-changes.html" class="nav-item"><i class="fas fa-edit"></i><span>Price Changes</span></a>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="top-bar-left"><h2>Promotions</h2><p class="breadcrumb">Pricing / Promotions</p></div>
+                <div class="top-bar-right">
+                    <div class="search-box"><i class="fas fa-search"></i><input type="text" placeholder="Search..."></div>
+                    <div class="user-menu"><img src="https://ui-avatars.com/api/?name=Admin+User&background=6366f1&color=fff" alt="User" class="user-avatar"><span>Admin User</span><i class="fas fa-chevron-down"></i></div>
+                </div>
+            </header>
+            <div class="content-area">
+                <div class="page-header">
+                    <h2>Promotions</h2>
+                    <button class="btn btn-primary" onclick="openModal('createPromotionModal')"><i class="fas fa-plus"></i> Create Promotion</button>
+                </div>
+                <div class="action-bar">
+                    <div class="action-bar-left">
+                        <select class="filter-select"><option>All Status</option><option>ACTIVE</option><option>SCHEDULED</option><option>EXPIRED</option></select>
+                        <select class="filter-select"><option>All Promotion Types</option><option>Percentage Off</option><option>Buy X Get Y</option><option>Bundle</option></select>
+                    </div>
+                </div>
+                <div class="dashboard-card">
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Promotion #</th>
+                                    <th>Name</th>
+                                    <th>Type</th>
+                                    <th>Items</th>
+                                    <th>Discount</th>
+                                    <th>Start Date</th>
+                                    <th>End Date</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>PROMO-2026-001</strong></td>
+                                    <td>Weekend Sale</td>
+                                    <td><span class="badge badge-receipt">Percentage Off</span></td>
+                                    <td>125</td>
+                                    <td>20%</td>
+                                    <td>2026-02-10</td>
+                                    <td>2026-02-12</td>
+                                    <td><span class="badge badge-success">ACTIVE</span></td>
+                                    <td>
+                                        <a href="#" class="btn btn-secondary" style="padding: 0.25rem 0.5rem; font-size: 0.75rem;">View</a>
+                                        <a href="#" class="btn btn-primary" style="padding: 0.25rem 0.5rem; font-size: 0.75rem;">Edit</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>PROMO-2026-002</strong></td>
+                                    <td>Buy 2 Get 1 Free</td>
+                                    <td><span class="badge badge-transfer">Buy X Get Y</span></td>
+                                    <td>45</td>
+                                    <td>33%</td>
+                                    <td>2026-02-15</td>
+                                    <td>2026-02-20</td>
+                                    <td><span class="badge badge-warning">SCHEDULED</span></td>
+                                    <td>
+                                        <a href="#" class="btn btn-secondary" style="padding: 0.25rem 0.5rem; font-size: 0.75rem;">View</a>
+                                        <a href="#" class="btn btn-primary" style="padding: 0.25rem 0.5rem; font-size: 0.75rem;">Edit</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <div class="modal-overlay" id="createPromotionModal">
+        <div class="modal" style="max-width: 800px;">
+            <div class="modal-header"><h3>Create Promotion</h3><button class="modal-close" onclick="closeModal('createPromotionModal')">&times;</button></div>
+            <form>
+                <div class="form-group"><label class="form-label">Promotion Name *</label><input type="text" class="form-input" required></div>
+                <div class="form-group"><label class="form-label">Promotion Type *</label><select class="form-select" required><option>Percentage Off</option><option>Buy X Get Y</option><option>Bundle</option><option>Fixed Amount Off</option></select></div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div class="form-group"><label class="form-label">Start Date *</label><input type="date" class="form-input" required></div>
+                    <div class="form-group"><label class="form-label">End Date *</label><input type="date" class="form-input" required></div>
+                </div>
+                <div class="form-group"><label class="form-label">Discount Value *</label><input type="number" step="0.01" class="form-input" required></div>
+                <div class="form-group"><label class="form-label">Applicable Locations</label><select class="form-select" multiple><option>All Locations</option><option>Store 001</option><option>Store 002</option></select></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('createPromotionModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Create Promotion</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="js/app.js"></script>
+</body>
+</html>

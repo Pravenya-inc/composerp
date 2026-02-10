@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supplier Items - Composerp</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header"><h1><i class="fas fa-cube"></i> Composerp</h1><p class="subtitle">Composable ERP</p></div>
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item"><i class="fas fa-chart-line"></i><span>Dashboard</span></a>
+                <a href="suppliers.html" class="nav-item"><i class="fas fa-truck"></i><span>Suppliers</span></a>
+                <a href="supplier-items.html" class="nav-item active"><i class="fas fa-link"></i><span>Supplier Items</span></a>
+                <a href="items.html" class="nav-item"><i class="fas fa-tags"></i><span>Items</span></a>
+                <a href="purchase-orders.html" class="nav-item"><i class="fas fa-file-invoice"></i><span>Purchase Orders</span></a>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="top-bar-left"><h2>Supplier Items</h2><p class="breadcrumb">Suppliers / Supplier Items</p></div>
+                <div class="top-bar-right">
+                    <div class="search-box"><i class="fas fa-search"></i><input type="text" placeholder="Search..."></div>
+                    <div class="user-menu"><img src="https://ui-avatars.com/api/?name=Admin+User&background=6366f1&color=fff" alt="User" class="user-avatar"><span>Admin User</span><i class="fas fa-chevron-down"></i></div>
+                </div>
+            </header>
+            <div class="content-area">
+                <div class="page-header">
+                    <h2>Supplier-Item Relationships</h2>
+                    <button class="btn btn-primary" onclick="openModal('createSupplierItemModal')"><i class="fas fa-plus"></i> Create Supplier Item</button>
+                </div>
+                <div class="action-bar">
+                    <div class="action-bar-left">
+                        <select class="filter-select"><option>All Suppliers</option><option>FarmFresh Dairy</option></select>
+                        <select class="filter-select"><option>All Items</option></select>
+                    </div>
+                </div>
+                <div class="dashboard-card">
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Supplier</th>
+                                    <th>Item</th>
+                                    <th>Supplier SKU</th>
+                                    <th>Lead Time (Days)</th>
+                                    <th>Min Order Qty</th>
+                                    <th>Order Multiple</th>
+                                    <th>Unit Cost</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>FarmFresh Dairy</td>
+                                    <td>Organic Whole Milk</td>
+                                    <td>FF-MILK-001</td>
+                                    <td>3</td>
+                                    <td>10</td>
+                                    <td>5</td>
+                                    <td>$5.00</td>
+                                    <td><span class="badge badge-success">Active</span></td>
+                                    <td>
+                                        <a href="#" class="btn btn-secondary" style="padding: 0.25rem 0.5rem; font-size: 0.75rem;">Edit</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>FarmFresh Dairy</td>
+                                    <td>Organic Yogurt</td>
+                                    <td>FF-YOG-001</td>
+                                    <td>3</td>
+                                    <td>12</td>
+                                    <td>6</td>
+                                    <td>$3.00</td>
+                                    <td><span class="badge badge-success">Active</span></td>
+                                    <td>
+                                        <a href="#" class="btn btn-secondary" style="padding: 0.25rem 0.5rem; font-size: 0.75rem;">Edit</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>FrozenFoods Inc</td>
+                                    <td>Frozen Vegetables</td>
+                                    <td>FF-VEG-001</td>
+                                    <td>5</td>
+                                    <td>20</td>
+                                    <td>10</td>
+                                    <td>$2.50</td>
+                                    <td><span class="badge badge-success">Active</span></td>
+                                    <td>
+                                        <a href="#" class="btn btn-secondary" style="padding: 0.25rem 0.5rem; font-size: 0.75rem;">Edit</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <div class="modal-overlay" id="createSupplierItemModal">
+        <div class="modal">
+            <div class="modal-header"><h3>Create Supplier Item</h3><button class="modal-close" onclick="closeModal('createSupplierItemModal')">&times;</button></div>
+            <form>
+                <div class="form-group"><label class="form-label">Supplier *</label><select class="form-select" required><option>Select supplier...</option></select></div>
+                <div class="form-group"><label class="form-label">Item *</label><select class="form-select" required><option>Select item...</option></select></div>
+                <div class="form-group"><label class="form-label">Supplier SKU</label><input type="text" class="form-input"></div>
+                <div class="form-group"><label class="form-label">Lead Time (Days) *</label><input type="number" class="form-input" value="7" required></div>
+                <div class="form-group"><label class="form-label">Min Order Quantity *</label><input type="number" class="form-input" value="1" required></div>
+                <div class="form-group"><label class="form-label">Order Multiple *</label><input type="number" class="form-input" value="1" required></div>
+                <div class="form-group"><label class="form-label">Unit Cost</label><input type="number" step="0.01" class="form-input"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('createSupplierItemModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Create</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="js/app.js"></script>
+</body>
+</html>

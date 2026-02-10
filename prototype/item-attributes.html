@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item Attributes - Composerp</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header"><h1><i class="fas fa-cube"></i> Composerp</h1><p class="subtitle">Composable ERP</p></div>
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item"><i class="fas fa-chart-line"></i><span>Dashboard</span></a>
+                <a href="items.html" class="nav-item"><i class="fas fa-tags"></i><span>Items</span></a>
+                <a href="item-attributes.html" class="nav-item active"><i class="fas fa-list"></i><span>Item Attributes</span></a>
+                <a href="merchandise-hierarchy.html" class="nav-item"><i class="fas fa-sitemap"></i><span>Merchandise Hierarchy</span></a>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="top-bar-left"><h2>Item Attributes</h2><p class="breadcrumb">Items / Attributes</p></div>
+                <div class="top-bar-right">
+                    <div class="search-box"><i class="fas fa-search"></i><input type="text" placeholder="Search..."></div>
+                    <div class="user-menu"><img src="https://ui-avatars.com/api/?name=Admin+User&background=6366f1&color=fff" alt="User" class="user-avatar"><span>Admin User</span><i class="fas fa-chevron-down"></i></div>
+                </div>
+            </header>
+            <div class="content-area">
+                <div class="page-header">
+                    <h2>Item Attributes Management</h2>
+                    <button class="btn btn-primary" onclick="openModal('createAttributeModal')"><i class="fas fa-plus"></i> Create Attribute</button>
+                </div>
+                <div class="dashboard-card">
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Attribute Name</th>
+                                    <th>Display Name</th>
+                                    <th>Data Type</th>
+                                    <th>Required</th>
+                                    <th>Unique</th>
+                                    <th>Used By Items</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>barcode</strong></td>
+                                    <td>Barcode</td>
+                                    <td>TEXT</td>
+                                    <td><span class="badge badge-success">Yes</span></td>
+                                    <td><span class="badge badge-success">Yes</span></td>
+                                    <td>2,450</td>
+                                    <td>
+                                        <a href="#" class="btn btn-secondary" style="padding: 0.25rem 0.5rem; font-size: 0.75rem;">Edit</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>shelfLife</strong></td>
+                                    <td>Shelf Life (Days)</td>
+                                    <td>NUMBER</td>
+                                    <td><span class="badge">No</span></td>
+                                    <td><span class="badge">No</span></td>
+                                    <td>1,200</td>
+                                    <td>
+                                        <a href="#" class="btn btn-secondary" style="padding: 0.25rem 0.5rem; font-size: 0.75rem;">Edit</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>countryOfOrigin</strong></td>
+                                    <td>Country of Origin</td>
+                                    <td>TEXT</td>
+                                    <td><span class="badge">No</span></td>
+                                    <td><span class="badge">No</span></td>
+                                    <td>850</td>
+                                    <td>
+                                        <a href="#" class="btn btn-secondary" style="padding: 0.25rem 0.5rem; font-size: 0.75rem;">Edit</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>hazmat</strong></td>
+                                    <td>Hazardous Material</td>
+                                    <td>BOOLEAN</td>
+                                    <td><span class="badge">No</span></td>
+                                    <td><span class="badge">No</span></td>
+                                    <td>45</td>
+                                    <td>
+                                        <a href="#" class="btn btn-secondary" style="padding: 0.25rem 0.5rem; font-size: 0.75rem;">Edit</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <div class="modal-overlay" id="createAttributeModal">
+        <div class="modal">
+            <div class="modal-header"><h3>Create Item Attribute</h3><button class="modal-close" onclick="closeModal('createAttributeModal')">&times;</button></div>
+            <form>
+                <div class="form-group"><label class="form-label">Attribute Name (Technical) *</label><input type="text" class="form-input" placeholder="attribute_name" required></div>
+                <div class="form-group"><label class="form-label">Display Name *</label><input type="text" class="form-input" placeholder="Attribute Name" required></div>
+                <div class="form-group"><label class="form-label">Data Type *</label><select class="form-select" required><option>TEXT</option><option>NUMBER</option><option>DECIMAL</option><option>DATE</option><option>BOOLEAN</option><option>PICKLIST</option></select></div>
+                <div class="form-group"><label class="form-label">Description</label><textarea class="form-textarea"></textarea></div>
+                <div class="form-group">
+                    <label><input type="checkbox"> Required field</label>
+                </div>
+                <div class="form-group">
+                    <label><input type="checkbox"> Unique constraint</label>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('createAttributeModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Create Attribute</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="js/app.js"></script>
+</body>
+</html>

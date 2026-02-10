@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdowns - Composerp</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header"><h1><i class="fas fa-cube"></i> Composerp</h1><p class="subtitle">Composable ERP</p></div>
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item"><i class="fas fa-chart-line"></i><span>Dashboard</span></a>
+                <a href="pricing.html" class="nav-item"><i class="fas fa-dollar-sign"></i><span>Pricing</span></a>
+                <a href="promotions.html" class="nav-item"><i class="fas fa-tag"></i><span>Promotions</span></a>
+                <a href="markdowns.html" class="nav-item active"><i class="fas fa-arrow-down"></i><span>Markdowns</span></a>
+                <a href="price-changes.html" class="nav-item"><i class="fas fa-edit"></i><span>Price Changes</span></a>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="top-bar-left"><h2>Markdowns</h2><p class="breadcrumb">Pricing / Markdowns</p></div>
+                <div class="top-bar-right">
+                    <div class="search-box"><i class="fas fa-search"></i><input type="text" placeholder="Search..."></div>
+                    <div class="user-menu"><img src="https://ui-avatars.com/api/?name=Admin+User&background=6366f1&color=fff" alt="User" class="user-avatar"><span>Admin User</span><i class="fas fa-chevron-down"></i></div>
+                </div>
+            </header>
+            <div class="content-area">
+                <div class="page-header">
+                    <h2>Markdown Management</h2>
+                    <button class="btn btn-primary" onclick="openModal('createMarkdownModal')"><i class="fas fa-plus"></i> Create Markdown</button>
+                </div>
+                <div class="action-bar">
+                    <div class="action-bar-left">
+                        <select class="filter-select"><option>All Status</option><option>PENDING</option><option>APPROVED</option><option>ACTIVE</option></select>
+                        <select class="filter-select"><option>All Markdown Types</option><option>Clearance</option><option>Seasonal</option><option>Damaged</option></select>
+                    </div>
+                </div>
+                <div class="dashboard-card">
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Markdown #</th>
+                                    <th>Reason</th>
+                                    <th>Items</th>
+                                    <th>Avg Markdown %</th>
+                                    <th>Total Value</th>
+                                    <th>Effective Date</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>MD-2026-001</strong></td>
+                                    <td>Seasonal Clearance</td>
+                                    <td>45</td>
+                                    <td>30%</td>
+                                    <td>$12,500</td>
+                                    <td>2026-02-15</td>
+                                    <td><span class="badge badge-warning">PENDING</span></td>
+                                    <td>
+                                        <a href="#" class="btn btn-success" style="padding: 0.25rem 0.5rem; font-size: 0.75rem;">Approve</a>
+                                        <a href="#" class="btn btn-secondary" style="padding: 0.25rem 0.5rem; font-size: 0.75rem;">View</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>MD-2026-002</strong></td>
+                                    <td>Damaged Goods</td>
+                                    <td>12</td>
+                                    <td>50%</td>
+                                    <td>$850</td>
+                                    <td>2026-02-09</td>
+                                    <td><span class="badge badge-success">ACTIVE</span></td>
+                                    <td>
+                                        <a href="#" class="btn btn-secondary" style="padding: 0.25rem 0.5rem; font-size: 0.75rem;">View</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <div class="modal-overlay" id="createMarkdownModal">
+        <div class="modal" style="max-width: 800px;">
+            <div class="modal-header"><h3>Create Markdown</h3><button class="modal-close" onclick="closeModal('createMarkdownModal')">&times;</button></div>
+            <form>
+                <div class="form-group"><label class="form-label">Markdown Reason *</label><select class="form-select" required><option>Clearance</option><option>Seasonal</option><option>Damaged</option><option>Discontinued</option><option>Other</option></select></div>
+                <div class="form-group"><label class="form-label">Markdown Type</label><select class="form-select"><option>Percentage</option><option>Fixed Amount</option></select></div>
+                <div class="form-group"><label class="form-label">Markdown Value *</label><input type="number" step="0.01" class="form-input" required></div>
+                <div class="form-group"><label class="form-label">Effective Date *</label><input type="date" class="form-input" required></div>
+                <div class="form-group"><label class="form-label">Add Items</label>
+                    <div style="display: flex; gap: 0.5rem;">
+                        <select class="form-select" style="flex: 1;"><option>Select item...</option></select>
+                        <input type="number" step="0.01" class="form-input" placeholder="Markdown %" style="width: 150px;">
+                        <button type="button" class="btn btn-secondary">Add</button>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('createMarkdownModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Create Markdown</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="js/app.js"></script>
+</body>
+</html>

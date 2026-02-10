@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transfer Orders - Composerp</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header"><h1><i class="fas fa-cube"></i> Composerp</h1><p class="subtitle">Composable ERP</p></div>
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item"><i class="fas fa-chart-line"></i><span>Dashboard</span></a>
+                <a href="inventory.html" class="nav-item"><i class="fas fa-boxes"></i><span>Inventory</span></a>
+                <a href="transfers.html" class="nav-item active"><i class="fas fa-exchange-alt"></i><span>Transfers</span></a>
+                <a href="purchase-orders.html" class="nav-item"><i class="fas fa-file-invoice"></i><span>Purchase Orders</span></a>
+                <a href="returns-vendor.html" class="nav-item"><i class="fas fa-undo"></i><span>Returns (RTV)</span></a>
+                <a href="inventory-counts.html" class="nav-item"><i class="fas fa-clipboard-check"></i><span>Inventory Counts</span></a>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="top-bar-left"><h2>Transfer Orders</h2><p class="breadcrumb">Inventory / Transfers</p></div>
+                <div class="top-bar-right">
+                    <div class="search-box"><i class="fas fa-search"></i><input type="text" placeholder="Search..."></div>
+                    <div class="user-menu"><img src="https://ui-avatars.com/api/?name=Admin+User&background=6366f1&color=fff" alt="User" class="user-avatar"><span>Admin User</span><i class="fas fa-chevron-down"></i></div>
+                </div>
+            </header>
+            <div class="content-area">
+                <div class="page-header">
+                    <h2>Transfer Orders</h2>
+                    <button class="btn btn-primary" onclick="openModal('createTransferModal')"><i class="fas fa-plus"></i> Create Transfer</button>
+                </div>
+                <div class="action-bar">
+                    <div class="action-bar-left">
+                        <select class="filter-select"><option>All Status</option><option>PENDING</option><option>IN_TRANSIT</option><option>RECEIVED</option><option>CANCELLED</option></select>
+                        <select class="filter-select"><option>All From Locations</option><option>Warehouse A</option><option>Store 001</option></select>
+                        <select class="filter-select"><option>All To Locations</option><option>Store 001</option><option>Store 002</option></select>
+                    </div>
+                </div>
+                <div class="dashboard-card">
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Transfer #</th>
+                                    <th>From Location</th>
+                                    <th>To Location</th>
+                                    <th>Items</th>
+                                    <th>Total Qty</th>
+                                    <th>Status</th>
+                                    <th>Created Date</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>TRF-2026-001</strong></td>
+                                    <td>Warehouse A</td>
+                                    <td>Store 001</td>
+                                    <td>5</td>
+                                    <td>150</td>
+                                    <td><span class="badge badge-warning">IN_TRANSIT</span></td>
+                                    <td>2026-02-08</td>
+                                    <td>
+                                        <a href="#" class="btn btn-secondary" style="padding: 0.25rem 0.5rem; font-size: 0.75rem;">View</a>
+                                        <a href="#" class="btn btn-success" style="padding: 0.25rem 0.5rem; font-size: 0.75rem;">Receive</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>TRF-2026-002</strong></td>
+                                    <td>Store 001</td>
+                                    <td>Store 002</td>
+                                    <td>3</td>
+                                    <td>25</td>
+                                    <td><span class="badge badge-success">RECEIVED</span></td>
+                                    <td>2026-02-07</td>
+                                    <td>
+                                        <a href="#" class="btn btn-secondary" style="padding: 0.25rem 0.5rem; font-size: 0.75rem;">View</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>TRF-2026-003</strong></td>
+                                    <td>Warehouse A</td>
+                                    <td>Store 003</td>
+                                    <td>8</td>
+                                    <td>200</td>
+                                    <td><span class="badge badge-warning">PENDING</span></td>
+                                    <td>2026-02-09</td>
+                                    <td>
+                                        <a href="#" class="btn btn-secondary" style="padding: 0.25rem 0.5rem; font-size: 0.75rem;">View</a>
+                                        <a href="#" class="btn btn-danger" style="padding: 0.25rem 0.5rem; font-size: 0.75rem;">Cancel</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <div class="modal-overlay" id="createTransferModal">
+        <div class="modal" style="max-width: 800px;">
+            <div class="modal-header"><h3>Create Transfer Order</h3><button class="modal-close" onclick="closeModal('createTransferModal')">&times;</button></div>
+            <form>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div class="form-group"><label class="form-label">From Location *</label><select class="form-select" required><option>Select location...</option></select></div>
+                    <div class="form-group"><label class="form-label">To Location *</label><select class="form-select" required><option>Select location...</option></select></div>
+                </div>
+                <div class="form-group"><label class="form-label">Transfer Date</label><input type="date" class="form-input"></div>
+                <div class="form-group"><label class="form-label">Add Items</label>
+                    <div style="display: flex; gap: 0.5rem;">
+                        <select class="form-select" style="flex: 1;"><option>Select item...</option></select>
+                        <input type="number" class="form-input" placeholder="Qty" style="width: 100px;">
+                        <button type="button" class="btn btn-secondary">Add</button>
+                    </div>
+                </div>
+                <div class="table-container" style="margin-top: 1rem;">
+                    <table class="data-table">
+                        <thead><tr><th>Item</th><th>SKU</th><th>Quantity</th><th>Actions</th></tr></thead>
+                        <tbody><tr><td colspan="4" style="text-align: center; color: var(--gray);">No items added</td></tr></tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('createTransferModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Create Transfer</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="js/app.js"></script>
+</body>
+</html>

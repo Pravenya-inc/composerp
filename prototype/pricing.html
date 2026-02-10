@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing Management - Composerp</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header"><h1><i class="fas fa-cube"></i> Composerp</h1><p class="subtitle">Composable ERP</p></div>
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item"><i class="fas fa-chart-line"></i><span>Dashboard</span></a>
+                <a href="pricing.html" class="nav-item active"><i class="fas fa-dollar-sign"></i><span>Pricing</span></a>
+                <a href="promotions.html" class="nav-item"><i class="fas fa-tag"></i><span>Promotions</span></a>
+                <a href="markdowns.html" class="nav-item"><i class="fas fa-arrow-down"></i><span>Markdowns</span></a>
+                <a href="price-changes.html" class="nav-item"><i class="fas fa-edit"></i><span>Price Changes</span></a>
+                <a href="items.html" class="nav-item"><i class="fas fa-tags"></i><span>Items</span></a>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="top-bar-left"><h2>Pricing Management</h2><p class="breadcrumb">Pricing / Price Lists</p></div>
+                <div class="top-bar-right">
+                    <div class="search-box"><i class="fas fa-search"></i><input type="text" placeholder="Search..."></div>
+                    <div class="user-menu"><img src="https://ui-avatars.com/api/?name=Admin+User&background=6366f1&color=fff" alt="User" class="user-avatar"><span>Admin User</span><i class="fas fa-chevron-down"></i></div>
+                </div>
+            </header>
+            <div class="content-area">
+                <div class="page-header">
+                    <h2>Price Lists</h2>
+                    <button class="btn btn-primary" onclick="openModal('createPriceListModal')"><i class="fas fa-plus"></i> Create Price List</button>
+                </div>
+                <div class="action-bar">
+                    <div class="action-bar-left">
+                        <select class="filter-select"><option>All Price Lists</option><option>Regular Pricing</option><option>Promotional Pricing</option></select>
+                        <select class="filter-select"><option>All Status</option><option>ACTIVE</option><option>INACTIVE</option></select>
+                    </div>
+                </div>
+                <div class="cards-grid">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Regular Price List</div>
+                            <div class="card-subtitle">Default Pricing</div>
+                        </div>
+                        <div class="card-body">
+                            <p><strong>Status:</strong> <span class="badge badge-success">Active</span></p>
+                            <p><strong>Items:</strong> 2,450</p>
+                            <p><strong>Effective Date:</strong> 2026-01-01</p>
+                            <p><strong>Expiry Date:</strong> None</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="#" class="btn btn-secondary">View</a>
+                            <a href="#" class="btn btn-primary">Edit</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Promotional Price List</div>
+                            <div class="card-subtitle">Weekend Sale</div>
+                        </div>
+                        <div class="card-body">
+                            <p><strong>Status:</strong> <span class="badge badge-success">Active</span></p>
+                            <p><strong>Items:</strong> 125</p>
+                            <p><strong>Effective Date:</strong> 2026-02-10</p>
+                            <p><strong>Expiry Date:</strong> 2026-02-12</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="#" class="btn btn-secondary">View</a>
+                            <a href="#" class="btn btn-primary">Edit</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashboard-card" style="margin-top: 2rem;">
+                    <div class="card-header"><h3>Price List Items</h3></div>
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Item</th>
+                                    <th>SKU</th>
+                                    <th>Regular Price</th>
+                                    <th>Sale Price</th>
+                                    <th>Effective Date</th>
+                                    <th>Expiry Date</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Organic Whole Milk</td>
+                                    <td>MILK-ORG-001</td>
+                                    <td>$5.99</td>
+                                    <td>$4.99</td>
+                                    <td>2026-02-10</td>
+                                    <td>2026-02-12</td>
+                                    <td><a href="#" class="btn btn-secondary" style="padding: 0.25rem 0.5rem; font-size: 0.75rem;">Edit</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Organic Yogurt</td>
+                                    <td>YOG-ORG-001</td>
+                                    <td>$3.99</td>
+                                    <td>$2.99</td>
+                                    <td>2026-02-10</td>
+                                    <td>2026-02-12</td>
+                                    <td><a href="#" class="btn btn-secondary" style="padding: 0.25rem 0.5rem; font-size: 0.75rem;">Edit</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <div class="modal-overlay" id="createPriceListModal">
+        <div class="modal">
+            <div class="modal-header"><h3>Create Price List</h3><button class="modal-close" onclick="closeModal('createPriceListModal')">&times;</button></div>
+            <form>
+                <div class="form-group"><label class="form-label">Price List Name *</label><input type="text" class="form-input" required></div>
+                <div class="form-group"><label class="form-label">Description</label><textarea class="form-textarea"></textarea></div>
+                <div class="form-group"><label class="form-label">Effective Date *</label><input type="date" class="form-input" required></div>
+                <div class="form-group"><label class="form-label">Expiry Date</label><input type="date" class="form-input"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('createPriceListModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Create</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="js/app.js"></script>
+</body>
+</html>

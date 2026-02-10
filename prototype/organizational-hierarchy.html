@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organizational Hierarchy - Composerp</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header"><h1><i class="fas fa-cube"></i> Composerp</h1><p class="subtitle">Composable ERP</p></div>
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item"><i class="fas fa-chart-line"></i><span>Dashboard</span></a>
+                <a href="merchandise-hierarchy.html" class="nav-item"><i class="fas fa-sitemap"></i><span>Merchandise Hierarchy</span></a>
+                <a href="organizational-hierarchy.html" class="nav-item active"><i class="fas fa-building"></i><span>Org Hierarchy</span></a>
+                <a href="items.html" class="nav-item"><i class="fas fa-tags"></i><span>Items</span></a>
+                <a href="suppliers.html" class="nav-item"><i class="fas fa-truck"></i><span>Suppliers</span></a>
+                <a href="locations.html" class="nav-item"><i class="fas fa-store"></i><span>Locations</span></a>
+                <a href="inventory.html" class="nav-item"><i class="fas fa-boxes"></i><span>Inventory</span></a>
+                <a href="purchase-orders.html" class="nav-item"><i class="fas fa-file-invoice"></i><span>Purchase Orders</span></a>
+                <a href="transfers.html" class="nav-item"><i class="fas fa-exchange-alt"></i><span>Transfers</span></a>
+                <a href="pricing.html" class="nav-item"><i class="fas fa-dollar-sign"></i><span>Pricing</span></a>
+                <a href="allocation.html" class="nav-item"><i class="fas fa-share-alt"></i><span>Allocation</span></a>
+                <a href="returns-vendor.html" class="nav-item"><i class="fas fa-undo"></i><span>Returns (RTV)</span></a>
+                <a href="inventory-counts.html" class="nav-item"><i class="fas fa-clipboard-check"></i><span>Inventory Counts</span></a>
+                <a href="deals.html" class="nav-item"><i class="fas fa-handshake"></i><span>Deals</span></a>
+                <a href="reports.html" class="nav-item"><i class="fas fa-chart-bar"></i><span>Reports</span></a>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="top-bar-left"><h2>Organizational Hierarchy</h2><p class="breadcrumb">Foundation / Organizational Hierarchy</p></div>
+                <div class="top-bar-right">
+                    <div class="search-box"><i class="fas fa-search"></i><input type="text" placeholder="Search..."></div>
+                    <div class="user-menu"><img src="https://ui-avatars.com/api/?name=Admin+User&background=6366f1&color=fff" alt="User" class="user-avatar"><span>Admin User</span><i class="fas fa-chevron-down"></i></div>
+                </div>
+            </header>
+            <div class="content-area">
+                <div class="page-header">
+                    <h2>Organizational Hierarchy</h2>
+                    <button class="btn btn-primary" onclick="openModal('createOrgModal')"><i class="fas fa-plus"></i> Create Organization</button>
+                </div>
+                <div class="dashboard-card">
+                    <div class="card-header"><h3>Organization Tree</h3></div>
+                    <div style="padding: 1rem;">
+                        <div style="border-left: 3px solid var(--primary); padding-left: 1rem; margin-bottom: 1rem;">
+                            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem;">
+                                <strong style="font-size: 1.125rem;">Company - Retail Corp</strong>
+                                <span class="badge badge-success">Active</span>
+                                <span style="color: var(--gray);">2,020 Locations</span>
+                            </div>
+                            <div style="margin-left: 2rem; border-left: 2px solid var(--gray-light); padding-left: 1rem;">
+                                <div style="margin-bottom: 0.5rem;">
+                                    <strong>Division - North Region</strong>
+                                    <span style="color: var(--gray); margin-left: 1rem;">800 Stores, 8 Warehouses</span>
+                                </div>
+                                <div style="margin-left: 2rem;">
+                                    <div style="margin-bottom: 0.25rem;"><span style="color: var(--gray);">District - North-East</span> <span style="color: var(--gray);">(200 stores)</span></div>
+                                    <div style="margin-bottom: 0.25rem;"><span style="color: var(--gray);">District - North-West</span> <span style="color: var(--gray);">(200 stores)</span></div>
+                                    <div style="margin-bottom: 0.25rem;"><span style="color: var(--gray);">District - North-Central</span> <span style="color: var(--gray);">(200 stores)</span></div>
+                                    <div><span style="color: var(--gray);">District - North-South</span> <span style="color: var(--gray);">(200 stores)</span></div>
+                                </div>
+                                <div style="margin-top: 0.5rem; margin-bottom: 0.5rem;">
+                                    <strong>Division - South Region</strong>
+                                    <span style="color: var(--gray); margin-left: 1rem;">600 Stores, 6 Warehouses</span>
+                                </div>
+                                <div style="margin-top: 0.5rem; margin-bottom: 0.5rem;">
+                                    <strong>Division - East Region</strong>
+                                    <span style="color: var(--gray); margin-left: 1rem;">400 Stores, 4 Warehouses</span>
+                                </div>
+                                <div style="margin-top: 0.5rem;">
+                                    <strong>Division - West Region</strong>
+                                    <span style="color: var(--gray); margin-left: 1rem;">200 Stores, 2 Warehouses</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <div class="modal-overlay" id="createOrgModal">
+        <div class="modal">
+            <div class="modal-header"><h3>Create Organization</h3><button class="modal-close" onclick="closeModal('createOrgModal')">&times;</button></div>
+            <form>
+                <div class="form-group"><label class="form-label">Organization Code *</label><input type="text" class="form-input" required></div>
+                <div class="form-group"><label class="form-label">Organization Name *</label><input type="form-input" required></div>
+                <div class="form-group"><label class="form-label">Organization Type *</label><select class="form-select" required><option>COMPANY</option><option>DIVISION</option><option>DISTRICT</option><option>REGION</option></select></div>
+                <div class="form-group"><label class="form-label">Parent Organization</label><select class="form-select"><option>Select parent...</option></select></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('createOrgModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Create</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="js/app.js"></script>
+</body>
+</html>
